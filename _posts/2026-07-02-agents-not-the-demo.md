@@ -1,18 +1,13 @@
 ---
-layout: default
-title: The hard part of AI agents is not the demo
+layout: post
+title: "The hard part of AI agents is not the demo"
+description: "Most agent demos optimize for surprise. Production systems optimize for recoverability, observability, and boring failure modes."
 date: 2026-07-02
-section: writing
-excerpt: Demos hide the recovery path. Production needs idempotent tools, explicit state, budgets, a kill switch, and traces.
-tags: ai-agents production-ai reliability
+tags:
+  - ai-agents
+  - production-ai
+  - reliability
 ---
-
-<p class="back"><a href="{{ '/' | relative_url }}">&lt;- ~/writing</a></p>
-<p class="date">2026-07-02</p>
-
-<article>
-<h1>{{ page.title }}</h1>
-<p class="post-tags">#ai-agents #production-ai #reliability</p>
 
 A demo agent looks finished because the happy path is short. It calls a tool, prints an answer, and stops. A production run lives long enough to fail in the middle of a side effect, then try again.
 
@@ -74,4 +69,3 @@ def create_ticket(ctx, title: str, idem: str) -> dict:
 ```
 
 If `ctx.kill` is set, the loop exits before the next tool call. The trace is the `effects` map plus the raw tool I/O, not a paragraph the model wrote at the end.
-</article>

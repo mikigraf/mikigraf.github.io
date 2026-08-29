@@ -1,0 +1,46 @@
+/* Rouge syntax: GitHub dark prettylights, for kramdown + rouge on GH Pages */
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w { color: #e6edf3; background: #161b22; }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr,
+.highlight .kt, .highlight .kv { color: #ff7b72; }
+.highlight .gr { color: #f85149; }
+.highlight .gd { color: #ffa198; background: #490202; }
+.highlight .gi { color: #56d364; background: #0f5323; }
+.highlight .gc { color: #8b949e; background: #30363d; }
+.highlight .err { color: #f85149; }
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs,
+.highlight .cp, .highlight .cpf { color: #8b949e; font-style: italic; }
+.highlight .gl { color: #8b949e; }
+.highlight .gh { color: #79c0ff; font-weight: bold; }
+.highlight .gu { color: #d2a8ff; font-weight: bold; }
+.highlight .ge { font-style: italic; }
+.highlight .gs { font-weight: bold; }
+.highlight .gp { color: #8b949e; }
+.highlight .go { color: #8b949e; }
+.highlight .gt { color: #ff7b72; }
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2,
+.highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr,
+.highlight .s1, .highlight .ss, .highlight .dl { color: #a5d6ff; }
+.highlight .sa { color: #ff7b72; }
+.highlight .dl { color: #a5d6ff; }
+.highlight .na { color: #79c0ff; }
+.highlight .nb, .highlight .bp { color: #79c0ff; }
+.highlight .nc, .highlight .nn { color: #f0883e; }
+.highlight .no { color: #79c0ff; }
+.highlight .nd { color: #d2a8ff; }
+.highlight .ni { color: #ffa198; }
+.highlight .ne { color: #f0883e; }
+.highlight .nf, .highlight .fm { color: #d2a8ff; }
+.highlight .nl { color: #79c0ff; }
+.highlight .nt { color: #7ee787; }
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm { color: #79c0ff; }
+.highlight .ow { color: #ff7b72; font-weight: bold; }
+.highlight .o { color: #ff7b72; }
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi,
+.highlight .il, .highlight .mo, .highlight .mx { color: #79c0ff; }
+.highlight .py { color: #79c0ff; }
+.highlight .nt { color: #7ee787; }
+.highlight .w { color: #e6edf3; }
+.highlight .p, .highlight .pi { color: #e6edf3; }
+.highlight .n { color: #e6edf3; }
