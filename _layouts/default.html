@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} \u2014 {% endif %}{{ site.title }}</title>
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
   {% seo %}
@@ -23,7 +23,7 @@
         <a href="https://github.com/mikigraf">GitHub</a>
         <a href="https://www.linkedin.com/in/mikigraf">LinkedIn</a>
       </p>
-      <p class="geo">Amsterdam, NL<br>US East Coast \u00b7 Chicago</p>
+      <p class="geo">Amsterdam, NL<br>US East Coast / Chicago</p>
     </aside>
     <main class="main">
       {{ content }}
