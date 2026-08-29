@@ -36,8 +36,8 @@ permalink: /work/
     <p>Self-hosted LLM fine-tune on Kubernetes, 2024. WIP, last push Jan 2024.</p>
   </li>
   <li>
-    <h2><a href="https://github.com/cloudsail-io/stargate-qa-agent">stargate-qa-agent</a></h2>
+    <h2>stargate-qa-agent</h2>
     <p class="status">wip</p>
-    <p>QA agent. Do not treat self-heal as a production claim.</p>
+    <p>QA agent. Public URL omitted (repo is not public).</p>
   </li>
 </ul>
