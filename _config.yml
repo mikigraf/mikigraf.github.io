@@ -1,0 +1,14 @@
+title: Mickey Graf
+description: accountable agent infrastructure
+url: https://mikigraf.github.io
+baseurl: ""
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE

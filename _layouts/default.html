@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} \u2014 {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  {% seo %}
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="name" href="{{ '/' | relative_url }}">Mickey Graf</a>
+      <p class="liner">accountable agent infrastructure</p>
+      <nav>
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="now"{% endif %}>Posts</a>
+        <a href="{{ '/work/' | relative_url }}"{% if page.url == '/work/' %} class="now"{% endif %}>Work</a>
+      </nav>
+      <p class="about">I build tools around coding agents: identity, isolation, and evidence outside the model. Day job is production AI systems. I write up work that actually ran.</p>
+      <p class="contact-label">Contact</p>
+      <p class="contact">
+        <a href="https://github.com/mikigraf">GitHub</a>
+        <a href="https://www.linkedin.com/in/mikigraf">LinkedIn</a>
+      </p>
+      <p class="geo">Amsterdam, NL<br>US East Coast \u00b7 Chicago</p>
+    </aside>
+    <main class="main">
+      {{ content }}
+    </main>
+  </div>
+</body>
+</html>
