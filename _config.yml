@@ -1,9 +1,12 @@
 title: Mickey Graf
-description: accountable agent infrastructure
+description: Production AI systems
 url: https://mikigraf.github.io
 baseurl: ""
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

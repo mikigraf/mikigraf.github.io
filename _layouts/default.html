@@ -13,18 +13,25 @@
     <aside class="sidebar">
       <img class="photo" src="https://avatars.githubusercontent.com/u/6236892?v=4" alt="Mickey Graf" width="160" height="160">
       <a class="name" href="{{ '/' | relative_url }}">Mickey Graf</a>
-      <p class="liner">accountable agent infrastructure</p>
+      <p class="role">Production AI Systems Engineer</p>
+      <p class="tags">Agents · RAG · MLOps · Cloud Infrastructure</p>
       <nav>
-        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="now"{% endif %}>Posts</a>
-        <a href="{{ '/work/' | relative_url }}"{% if page.url == '/work/' %} class="now"{% endif %}>Work</a>
+        <a href="{{ '/' | relative_url }}"{% if page.section == 'writing' %} class="now"{% endif %}>~/writing</a>
+        <a href="{{ '/about/' | relative_url }}"{% if page.section == 'about' %} class="now"{% endif %}>~/about</a>
+        <a href="{{ '/work/' | relative_url }}"{% if page.section == 'work' %} class="now"{% endif %}>~/work</a>
+        <a href="{{ '/contact/' | relative_url }}"{% if page.section == 'contact' %} class="now"{% endif %}>~/contact</a>
       </nav>
-      <p class="about">I build tools around coding agents: identity, isolation, and evidence outside the model. Day job is production AI systems. I write up work that actually ran.</p>
-      <p class="contact-label">Contact</p>
+      <p class="about">I build production AI systems: agents, retrieval, orchestration, and the cloud they run on. I write about what actually ran, not the demo.</p>
+      <ul class="stats">
+        <li>13+ years building production software</li>
+        <li>AI / ML systems since 2017</li>
+        <li>ex-AI @ trivago · SAP AI</li>
+      </ul>
       <p class="contact">
-        <a href="https://github.com/mikigraf">GitHub</a>
-        <a href="https://www.linkedin.com/in/mikigraf">LinkedIn</a>
+        <a href="https://github.com/mikigraf">github</a>
+        <a href="https://www.linkedin.com/in/mikigraf">linkedin</a>
       </p>
-      <p class="geo">Amsterdam, NL<br>Dusseldorf, DE<br>50/50</p>
+      <p class="geo">loc: Amsterdam, NL · Dusseldorf, DE<br>50/50</p>
     </aside>
     <main class="main">
       {{ content }}
