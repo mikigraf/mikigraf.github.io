@@ -3,37 +3,74 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <title>{% if page.title and page.title != site.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}, Production AI Systems Engineer{% endif %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/syntax.css' | relative_url }}">
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
   {% seo %}
+  {% feed_meta %}
 </head>
 <body>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="mhead">
+    <div class="mhead-row">
+      <div class="mhead-photo">
+        <img src="https://avatars.githubusercontent.com/u/6236892?v=4" alt="Mickey Graf" width="44" height="44">
+      </div>
+      <div>
+        <div class="mhead-name"><a href="{{ '/' | relative_url }}">Mickey Graf</a></div>
+        <div class="mhead-role">Production AI Systems Engineer · Agents, RAG, MLOps, Cloud</div>
+      </div>
+    </div>
+    <nav aria-label="Site navigation">
+      <a href="{{ '/' | relative_url }}">~/writing</a>
+      <a href="{{ '/about/' | relative_url }}">~/about</a>
+      <a href="{{ '/work/' | relative_url }}">~/work</a>
+      <a href="{{ '/contact/' | relative_url }}">~/contact</a>
+    </nav>
+  </header>
+
   <div class="shell">
     <aside class="sidebar">
-      <img class="photo" src="https://avatars.githubusercontent.com/u/6236892?v=4" alt="Mickey Graf" width="160" height="160">
-      <a class="name" href="{{ '/' | relative_url }}">Mickey Graf</a>
-      <p class="role">Production AI Systems Engineer</p>
-      <p class="tags">Agents · RAG · MLOps · Cloud Infrastructure</p>
-      <nav>
-        <a href="{{ '/' | relative_url }}"{% if page.section == 'writing' %} class="now"{% endif %}>~/writing</a>
-        <a href="{{ '/about/' | relative_url }}"{% if page.section == 'about' %} class="now"{% endif %}>~/about</a>
-        <a href="{{ '/work/' | relative_url }}"{% if page.section == 'work' %} class="now"{% endif %}>~/work</a>
-        <a href="{{ '/contact/' | relative_url }}"{% if page.section == 'contact' %} class="now"{% endif %}>~/contact</a>
+      <div class="headshot">
+        <img src="https://avatars.githubusercontent.com/u/6236892?v=4" alt="Mickey Graf" width="86" height="86">
+      </div>
+      <div class="side-name"><a href="{{ '/' | relative_url }}">Mickey Graf</a></div>
+      <div class="side-role">Production AI Systems Engineer</div>
+      <div class="side-tags">Agents · RAG · MLOps · Cloud Infrastructure</div>
+      <nav aria-label="Site navigation">
+        <a href="{{ '/' | relative_url }}">~/writing</a>
+        <a href="{{ '/about/' | relative_url }}">~/about</a>
+        <a href="{{ '/work/' | relative_url }}">~/work</a>
+        <a href="{{ '/contact/' | relative_url }}">~/contact</a>
       </nav>
-      <p class="about">I build production AI systems: agents, retrieval, orchestration, and the cloud they run on. I write about what actually ran, not the demo.</p>
+      <p class="side-bio">Shipped AI, cloud, and product systems used by millions across trivago, SAP, tonies, EWE Go, GovTech, and Concentrix. Hackathons taught me to ship fast; regulated industries, B2C, and IoT taught me to build right.</p>
+      <p class="side-bio">My depth is the production layer of AI systems: retrieval, orchestration, evaluation, observability, latency, cost, and cloud infrastructure.</p>
       <ul class="stats">
-        <li>13+ years building production software</li>
-        <li>AI / ML systems since 2017</li>
-        <li>ex-AI @ trivago · SAP AI</li>
+        <li><span class="gt" aria-hidden="true">&gt;</span> <strong>13+</strong> years building production software</li>
+        <li><span class="gt" aria-hidden="true">&gt;</span> AI / ML systems since <strong>2017</strong></li>
+        <li><span class="gt" aria-hidden="true">&gt;</span> ex-AI @ trivago · SAP AI</li>
+        <li><span class="gt" aria-hidden="true">&gt;</span> Systems for <strong>millions</strong> of users/devices</li>
+        <li><span class="gt" aria-hidden="true">&gt;</span> <strong>2×</strong> technical founder: getConvo.ai &amp; Fullbeam.ai</li>
       </ul>
-      <p class="contact">
+      <div class="side-links">
+        <a href="mailto:miki@cloudsail.com">email</a>
+        <span>·</span>
         <a href="https://github.com/mikigraf">github</a>
-        <a href="https://www.linkedin.com/in/mikigraf">linkedin</a>
-      </p>
-      <p class="geo">loc: Amsterdam, NL · Dusseldorf, DE<br>50/50</p>
+        <span>·</span>
+        <a href="https://linkedin.com/in/mikigraf">linkedin</a>
+      </div>
+      <div class="side-geo">
+        <div><span class="k">loc:</span> Amsterdam, NL · 52.37°N 4.90°E</div>
+        <div><span class="k">loc:</span> Dusseldorf, DE · 51.23°N 6.77°E</div>
+        <div>50/50</div>
+      </div>
     </aside>
-    <main class="main">
+    <main>
       {{ content }}
     </main>
   </div>
