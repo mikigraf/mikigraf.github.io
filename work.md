@@ -2,6 +2,7 @@
 layout: default
 title: Work
 permalink: /work/
+section: work
 ---
 
 <ul class="work">

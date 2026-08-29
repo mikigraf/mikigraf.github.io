@@ -2,18 +2,19 @@
 layout: default
 title: The hard part of AI agents is not the demo
 date: 2026-07-02
+section: writing
 excerpt: Demos hide the recovery path. Production needs idempotent tools, explicit state, budgets, a kill switch, and traces.
+tags: ai-agents production-ai reliability
 ---
 
-<p class="back"><a href="{{ '/' | relative_url }}">&lt;- Posts</a></p>
-<p class="date">2 Jul 2026</p>
+<p class="back"><a href="{{ '/' | relative_url }}">&lt;- ~/writing</a></p>
+<p class="date">2026-07-02</p>
 
 <article>
 <h1>{{ page.title }}</h1>
+<p class="post-tags">#ai-agents #production-ai #reliability</p>
 
 A demo agent looks finished because the happy path is short. It calls a tool, prints an answer, and stops. A production run lives long enough to fail in the middle of a side effect, then try again.
-
-That is the gap I keep hitting in real agent systems. The model is not the scarce part. The scarce part is what happens after the first tool call goes wrong.
 
 The naive loop looks like this:
 
@@ -73,6 +74,4 @@ def create_ticket(ctx, title: str, idem: str) -> dict:
 ```
 
 If `ctx.kill` is set, the loop exits before the next tool call. The trace is the `effects` map plus the raw tool I/O, not a paragraph the model wrote at the end.
-
-This post is layout sample copy for the blog. The first real artifact post is ctxlane.
 </article>
