@@ -1,3 +1,4 @@
+/* Mickey Graf — ported from working HTML mock (v3 serious cyberpunk) */
 :root {
   --bg: #0A0D10;
   --text: #C3CDD1;
@@ -36,8 +37,6 @@
     --mg-monly: block;
     --mg-mainpad: 26px 0 88px;
   }
-  .mhead { display: block; }
-  .sidebar { display: none; }
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
@@ -48,12 +47,18 @@ a:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   position: fixed; inset: 0; pointer-events: none; z-index: 40;
   background: repeating-linear-gradient(0deg, rgba(232,238,240,0.02) 0px, rgba(232,238,240,0.02) 1px, transparent 1px, transparent 3px);
 }
-.mhead { display: none; border-bottom: 1px solid var(--border); }
+
+/* Mobile header */
+.mhead { display: var(--mg-mhead); border-bottom: 1px solid var(--border); }
 .mhead-row { display: flex; align-items: center; gap: 14px; padding: 18px 20px 0; }
 .mhead-photo {
   width: 52px; height: 52px; flex: none; padding: 3px; border: 1px solid var(--photo-border);
 }
 .mhead-photo img { width: 44px; height: 44px; object-fit: cover; display: block; filter: grayscale(1); }
+.mhead-photo.headshot { width: 52px; height: 52px; padding: 3px; }
+.mhead-photo.headshot img { width: 44px; height: 44px; }
+.mhead-photo.headshot::before,
+.mhead-photo.headshot::after { width: 8px; height: 8px; }
 .mhead-name {
   font: 700 15px/1.3 var(--mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--head);
 }
@@ -64,12 +69,15 @@ a:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   font: 500 13px/1.5 var(--mono); color: var(--cyan); padding: 1px 3px; margin: 0 -3px;
 }
 .mhead nav a:hover { background: var(--cyan); color: var(--bg); }
+
 .shell {
   display: flex; align-items: flex-start; justify-content: center;
   gap: 56px; max-width: 1120px; margin: 0 auto; padding: 0 24px;
 }
+
+/* Sidebar */
 .sidebar {
-  display: block; width: 292px; flex: none;
+  display: var(--mg-side); width: 292px; flex: none;
   position: sticky; top: 0; max-height: 100vh; overflow-y: auto;
   scrollbar-width: thin; scrollbar-color: #1B242B transparent;
   padding: 64px 44px 48px 0; border-right: 1px solid var(--border);
@@ -122,7 +130,9 @@ a:focus { outline: 2px solid var(--cyan); outline-offset: 2px; }
   margin: 14px 0 0; font: 400 12.5px/1.7 var(--mono); color: var(--stat);
 }
 .side-geo .k { color: var(--cyan-dim); }
+
 main { flex: 0 1 640px; min-width: 0; padding: var(--mg-mainpad); }
+
 .page-title {
   margin: 0; font: 700 30px/1.25 var(--mono); letter-spacing: -0.01em; color: var(--head);
 }
@@ -134,6 +144,7 @@ main { flex: 0 1 640px; min-width: 0; padding: var(--mg-mainpad); }
 .lede {
   margin: 12px 0 28px; font: 400 16.5px/1.65 var(--serif); color: var(--muted); text-wrap: pretty;
 }
+
 .post-tease { padding: 24px 0; border-top: 1px solid var(--rule); }
 .post-date { font: 500 12.5px/1.5 var(--mono); letter-spacing: 0.02em; color: var(--cyan); }
 .post-tease h2 {
@@ -145,6 +156,7 @@ main { flex: 0 1 640px; min-width: 0; padding: var(--mg-mainpad); }
   margin: 0 0 10px; font: 400 16px/1.65 var(--serif); color: var(--body-dim); text-wrap: pretty;
 }
 .post-tags { font: 400 12px/1.5 var(--mono); color: var(--tag); }
+
 .back {
   font: 500 13px/1.5 var(--mono); color: var(--cyan); padding: 1px 4px; margin: 0 -4px;
 }
@@ -154,6 +166,7 @@ main { flex: 0 1 640px; min-width: 0; padding: var(--mg-mainpad); }
 }
 .post-meta { margin: 36px 0 0; }
 .post-tags-block { margin: 0 0 34px; }
+
 .prose p { margin: 0 0 16px; font: 400 17.5px/1.75 var(--serif); color: var(--text); }
 .prose h2 {
   margin: 36px 0 12px; font: 600 18.5px/1.4 var(--mono); color: var(--head);
@@ -168,35 +181,48 @@ main { flex: 0 1 640px; min-width: 0; padding: var(--mg-mainpad); }
 .prose em { font-style: italic; }
 .prose a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #2E7E88; }
 .prose a:hover { background: var(--cyan); color: var(--bg); text-decoration: none; }
+
+/* GitHub-style blockquotes: left rule, not italic */
 .prose blockquote {
   margin: 0 0 16px; padding: 0 1em;
   color: #8b949e; border-left: 0.25em solid #3d444d;
+  font-style: normal;
 }
-.prose blockquote p { margin: 0 0 8px; font: 400 17.5px/1.75 var(--serif); color: inherit; font-style: normal; }
+.prose blockquote p {
+  margin: 0 0 8px; font: 400 17.5px/1.75 var(--serif);
+  color: inherit; font-style: normal;
+}
 .prose blockquote p:last-child { margin-bottom: 0; }
+
+/* GitHub-style inline code */
 .prose code, .prose tt {
-  font: 400 15px/1.5 var(--mono);
+  font: 400 14.5px/1.5 var(--mono);
   padding: 0.15em 0.4em; margin: 0;
   white-space: break-spaces;
   background: rgba(110, 118, 129, 0.4);
-  border-radius: 6px; color: var(--head);
-  border: 0;
+  border-radius: 6px; color: var(--head); border: 0;
 }
 .prose pre, .prose .highlight, .prose .highlighter-rouge .highlight {
-  margin: 0 0 16px; padding: 16px;
-  overflow: auto; line-height: 1.6;
+  margin: 0 0 16px; padding: 16px; overflow: auto; line-height: 1.65;
   background: #161b22; border: 1px solid #30363d; border-radius: 6px;
 }
-.prose pre { font: 400 15px/1.6 var(--mono); color: #e6edf3; }
+.prose pre { font: 400 16px/1.65 var(--mono); color: #e6edf3; }
 .prose pre code, .prose .highlight pre, .prose .highlight code,
 .prose .highlighter-rouge pre, .prose .highlighter-rouge code {
   background: transparent; border: 0; padding: 0; margin: 0;
-  font: 400 15px/1.6 var(--mono); color: inherit; white-space: pre; border-radius: 0;
+  font: 400 16px/1.65 var(--mono); color: inherit; white-space: pre; border-radius: 0;
 }
 .prose .highlight { padding: 16px; }
 .prose .highlight pre { margin: 0; padding: 0; border: 0; background: none; overflow: visible; }
 .prose .highlighter-rouge { margin: 0 0 16px; }
 .prose .highlighter-rouge .highlight { margin: 0; }
+.prose table { border-collapse: collapse; margin: 0 0 16px; width: 100%; }
+.prose th, .prose td {
+  border: 1px solid #30363d; padding: 6px 13px;
+  font: 400 15px/1.5 var(--serif);
+}
+.prose th { background: #161b22; color: var(--head); font-weight: 600; }
+
 .work-item { padding: 22px 0 8px; border-top: 1px solid var(--rule); }
 .work-item h2 { margin: 0 0 8px; font: 600 16.5px/1.5 var(--mono); color: var(--head); }
 .work-item h2 a { color: inherit; }
@@ -215,10 +241,12 @@ main { flex: 0 1 640px; min-width: 0; padding: var(--mg-mainpad); }
 .quest-title a:hover { background: var(--cyan); color: var(--bg); }
 .quest-title .sub { font-weight: 400; font-size: 12px; color: var(--tag); }
 .quest p { margin: 4px 0 0; font: 400 15px/1.65 var(--serif); color: var(--body-dim); }
+
 .cd {
   font: 500 13.5px/1.5 var(--mono); color: var(--cyan); padding: 1px 4px; margin: 0 -4px;
 }
 .cd:hover { background: var(--cyan); color: var(--bg); }
+
 .author { margin: 42px 0 0; padding: 20px 0 0; border-top: 1px solid var(--rule); }
 .author-label { font: 400 12px/1.5 var(--mono); color: var(--link-muted); }
 .author p { margin: 10px 0 0; font: 400 15px/1.7 var(--serif); color: var(--body-dim); text-wrap: pretty; }
@@ -228,6 +256,7 @@ main { flex: 0 1 640px; min-width: 0; padding: var(--mg-mainpad); }
 .author a:hover { background: var(--cyan); color: var(--bg); }
 .author a.mail { font: 400 15px var(--serif); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #2E7E88; padding: 0; margin: 0; }
 .author a.mail:hover { text-decoration: none; }
+
 .contact-links {
   margin: 32px 0 0; padding: 20px 0 0; border-top: 1px solid var(--rule);
   display: flex; flex-wrap: wrap; gap: 6px 10px;
@@ -235,6 +264,7 @@ main { flex: 0 1 640px; min-width: 0; padding: var(--mg-mainpad); }
 }
 .contact-links a { color: var(--cyan); padding: 1px 3px; margin: 0 -3px; }
 .contact-links a:hover { background: var(--cyan); color: var(--bg); }
+
 .page-title.spaced { margin: 0 0 24px; }
 .about-list { margin: 0 0 24px; padding-left: 22px; }
 .about-list li { margin: 0 0 7px; font: 400 16px/1.65 var(--serif); color: var(--list); }
